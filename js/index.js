@@ -61,7 +61,45 @@ function removeProduct(event) {
 // ITERATION 5
 
 function createProduct() {
-  //... your code goes here
+  const table = document.querySelector('tbody')
+  const productInput = document.querySelector('.create-product .productName')
+  const priceInput = document.querySelector('.create-product .productPrice')
+  const newRow = document.createElement('tr')
+  table.appendChild(newRow)
+  newRow.className = 'product'
+
+  const newName = document.createElement('td')
+  newName.className = 'name'
+  newRow.appendChild(newName)
+
+  const newSpan = document.createElement('span')
+  if (productInput.value === '') return
+  newSpan.value = productInput.value
+  newName.appendChild(newSpan)
+
+
+  const newPrice = document.createElement('td')
+  newPrice.className = 'price'
+  newRow.appendChild(newPrice)
+
+  const newQuantity = document.createElement('td')
+  newQuantity.className = 'quantity'
+  newRow.appendChild(newQuantity)
+
+  const newSubtotal = document.createElement('td')
+  newSubtotal.className = 'subtotal'
+  newRow.appendChild(newSubtotal)
+
+  const newAction = document.createElement('td')
+  newAction.className = 'action'
+  newRow.appendChild(newAction)
+
+
+
+  // if (productInput.value === '') return
+  // if (priceInput.value === '') return
+  
+
 }
 
 window.addEventListener('load', () => {
@@ -72,5 +110,8 @@ window.addEventListener('load', () => {
   removeProductBtn.forEach(button => {
     button.addEventListener('click', removeProduct)
   })
+
+  const createProductBtn = document.getElementById('create')
+  createProductBtn.addEventListener('click', createProduct);
 
 });
